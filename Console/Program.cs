@@ -12,13 +12,30 @@ namespace ReCapProject // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            CarTest();
+        }
+
+        private static void CarTest()
+        {
             ICarService carManager = new CarManager(new EfCarDal());
 
-            carManager.Add(new Car() { Description="Tesla", DailyPrice=505});
+            var getById = carManager.GetById(5);
+            Console.WriteLine(getById.Id + "   " + getById.BrandId + "   " + getById.ColorId + "   " + getById.ModelYear + "   " + getById.DailyPrice + "   " + getById.Description);
 
-            foreach (var car in carManager.GetCarsByBrandId(2))
+            Console.WriteLine("CarId    BrandId    ColorId    ModelYear    DailyPrice    Description");
+            Console.WriteLine("----------------------------------------------------------------------");
+            Console.WriteLine();
+            foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine(car.BrandId + " numaralı markaya ait araç : " + car.Id);
+                Console.WriteLine(car.Id + "   " + car.BrandId +"   " + car.ColorId + "   " + car.ModelYear + "   " + car.DailyPrice + "   " + car.Description);
+            }
+
+            Console.WriteLine("CarName    BrandName    ColorName    DailyPrice");
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine();
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.CarName + "   " + car.BrandName + "   " + car.ColorName + "   " + car.DailyPrice);
             }
         }
     }
