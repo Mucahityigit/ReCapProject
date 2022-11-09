@@ -24,5 +24,7 @@ namespace Business.Constants
         public static string SuccessGetCarsByColorIdMessage = "Aranılan Renkteki Araçlar Listelendi";
         public static string ErrorGetCarsByColorIdMessage = "Aranılan Renkte Araç Bulunamadı";
         public static string SuccessGetCarDetailsMessage = "Araç bilgileri listelendi";
+        public static string ErrorEmpityMessage = "Boş değer bırakmayınız.";
+        public static string ErrorReturnDateMessage = "Araç kiradadır.";
     }
 }
