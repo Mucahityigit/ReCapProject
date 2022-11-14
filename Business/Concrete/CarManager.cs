@@ -46,18 +46,22 @@ namespace Business.Concrete
 
         public IResult Delete(Car car)
         {
+            _carDal.Delete(car);
             return new SuccesResult(Messages.DeletedSuccessMessage);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-           var result =  _carDal.GetAll();
-
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.SuccessGetAllMessage);
         }
         public IDataResult<Car> GetById(int id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == id),Messages.SuccessGetByIdMessage);
+            var result = _carDal.Get(p => p.Id == id);
+            if(result == null)
+            {
+                return new ErrorDataResult<Car>(Messages.ErrorGetByIdMessage);
+            }
+            return new SuccessDataResult<Car>(result, Messages.SuccessGetByIdMessage);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)

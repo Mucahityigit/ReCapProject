@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,12 @@ namespace Business.Concrete
 
         public IDataResult<Rental> GetById(int id)
         {
-            return new SuccessDataResult<Rental>(_rentalDal.Get(c => c.Id == id), Messages.SuccessGetByIdMessage);
+            var result = _rentalDal.Get(p => p.Id == id);
+            if (result == null)
+            {
+                return new ErrorDataResult<Rental>(Messages.ErrorGetByIdMessage);
+            }
+            return new SuccessDataResult<Rental>(result, Messages.SuccessGetByIdMessage);
         }
 
         public IResult Update(Rental rental)
