@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
@@ -16,7 +17,7 @@ namespace ReCapProject // Note: actual namespace depends on the project name.
             //CarTest();
             //CustomerTest();
             //UserTest();
-            RentalTest();
+            //RentalTest();
         }
 
         private static void RentalTest()
@@ -33,9 +34,9 @@ namespace ReCapProject // Note: actual namespace depends on the project name.
         private static void UserTest()
         {
             IUserService userManager = new UserManager(new EfUserDal());
-            User user1 = new User { FirstName = "Mücahit", LastName = "YİĞİT", Email = "b.mucahityigit@gmail.com", Password = "mucahityigit" };
-            User user2 = new User { FirstName = "Reyhan", LastName = "YİĞİT", Email = "reyhan@gmail.com", Password = "reyhanyigit" };
-            User user3 = new User { FirstName = "Eflin", LastName = "YİĞİT", Email = "eflin@gmail.com", Password = "eflinyigit" };
+            User user1 = new User { FirstName = "Mücahit", LastName = "YİĞİT", Email = "b.mucahityigit@gmail.com"};
+            User user2 = new User { FirstName = "Reyhan", LastName = "YİĞİT", Email = "reyhan@gmail.com"};
+            User user3 = new User { FirstName = "Eflin", LastName = "YİĞİT", Email = "eflin@gmail.com"};
 
             userManager.Add(user1);
             userManager.Add(user2);
