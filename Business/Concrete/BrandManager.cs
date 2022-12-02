@@ -24,18 +24,18 @@ namespace Business.Concrete
         public IResult Add(Brand car)
         {
             _brandDal.Add(car);
-            return new SuccesResult(Messages.AddedSuccessMessage);
+            return new SuccessResult(Messages.AddedSuccessMessage);
         }
         public IResult Update(Brand car)
         {
             _brandDal.Update(car);
-            return new SuccesResult(Messages.UpdatedSuccessMessage);
+            return new SuccessResult(Messages.UpdatedSuccessMessage);
         }
 
         public IResult Delete(Brand car)
         {
             _brandDal.Delete(car);
-            return new SuccesResult(Messages.DeletedSuccessMessage);
+            return new SuccessResult(Messages.DeletedSuccessMessage);
         }
 
         public IDataResult<List<Brand>> GetAll()

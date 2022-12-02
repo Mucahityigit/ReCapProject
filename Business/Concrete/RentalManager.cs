@@ -44,7 +44,7 @@ namespace Business.Concrete
                 //if(check == result.Count)
                 //{
                     _rentalDal.Add(rental);
-                    return new SuccesResult(Messages.AddedSuccessMessage);
+                    return new SuccessResult(Messages.AddedSuccessMessage);
                 //}
                 //return new ErrorResult(Messages.ErrorReturnDateMessage);
 
@@ -54,7 +54,7 @@ namespace Business.Concrete
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
-            return new SuccesResult(Messages.DeletedSuccessMessage);
+            return new SuccessResult(Messages.DeletedSuccessMessage);
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -75,7 +75,7 @@ namespace Business.Concrete
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
-            return new SuccesResult(Messages.UpdatedSuccessMessage);
+            return new SuccessResult(Messages.UpdatedSuccessMessage);
         }
     }
 }

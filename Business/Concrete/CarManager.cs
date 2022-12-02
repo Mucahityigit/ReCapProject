@@ -31,19 +31,19 @@ namespace Business.Concrete
         public IResult Add(Car car)
         {
             _carDal.Add(car);
-            return new SuccesResult(Messages.AddedSuccessMessage);
+            return new SuccessResult(Messages.AddedSuccessMessage);
 
         }
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-            return new SuccesResult(Messages.UpdatedSuccessMessage);
+            return new SuccessResult(Messages.UpdatedSuccessMessage);
         }
 
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-            return new SuccesResult(Messages.DeletedSuccessMessage);
+            return new SuccessResult(Messages.DeletedSuccessMessage);
         }
 
         public IDataResult<List<Car>> GetAll()

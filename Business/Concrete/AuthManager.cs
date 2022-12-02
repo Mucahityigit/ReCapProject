@@ -59,7 +59,7 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.UserAlreadyExists);
             }
-            return new SuccesResult("Böyle bir kullanıcı bulunamadı");
+            return new SuccessResult("Böyle bir kullanıcı bulunamadı");
         }
 
         public IDataResult<AccessToken> CreateAccessToken(User user)

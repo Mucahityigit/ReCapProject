@@ -26,18 +26,18 @@ namespace Business.Concrete
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
-            return new SuccesResult(Messages.AddedSuccessMessage);
+            return new SuccessResult(Messages.AddedSuccessMessage);
         }
         public IResult Update(Color color)
         {
             _colorDal.Update(color);
-            return new SuccesResult(Messages.UpdatedSuccessMessage);
+            return new SuccessResult(Messages.UpdatedSuccessMessage);
         }
 
         public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
-            return new SuccesResult(Messages.DeletedSuccessMessage);
+            return new SuccessResult(Messages.DeletedSuccessMessage);
         }
 
         public IDataResult<List<Color>> GetAll()
