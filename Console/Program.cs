@@ -23,9 +23,9 @@ namespace ReCapProject // Note: actual namespace depends on the project name.
         private static void RentalTest()
         {
             IRentalService rentalManager = new RentalManager(new EfRentalDal());
-            Rental rental1 = new Rental { CarId = 1, CustomerId = 1, RentDate = new DateTime(2022, 11, 9)};
-            Rental rental2 = new Rental { CarId = 5, CustomerId = 2, RentDate = new DateTime(2022, 11, 5)};
-            Rental rental3 = new Rental { CarId = 2, CustomerId = 3, RentDate = new DateTime(2022, 11, 6)};
+            Rental rental1 = new Rental { CarId = 1, UserId = 1, RentDate = new DateTime(2022, 11, 9)};
+            Rental rental2 = new Rental { CarId = 5, UserId = 2, RentDate = new DateTime(2022, 11, 5)};
+            Rental rental3 = new Rental { CarId = 2, UserId = 3, RentDate = new DateTime(2022, 11, 6)};
             Console.WriteLine(rentalManager.Add(rental1).Message);
             Console.WriteLine(rentalManager.Add(rental2).Message);
             Console.WriteLine(rentalManager.Add(rental3).Message);
@@ -80,7 +80,7 @@ namespace ReCapProject // Note: actual namespace depends on the project name.
                 Console.WriteLine();
                 foreach (var car in result.Data)
                 {
-                    Console.WriteLine(car.CarName + "   " + car.BrandName + "   " + car.ColorName + "   " + car.DailyPrice);
+                    Console.WriteLine(car.CarId + "   " + car.BrandName + "   " + car.ColorName + "   " + car.DailyPrice);
                 }
             }
             else

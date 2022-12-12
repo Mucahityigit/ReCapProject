@@ -24,6 +24,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddCors();
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -56,12 +57,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
+app.UseStaticFiles();
 
 app.MapControllers();
 
